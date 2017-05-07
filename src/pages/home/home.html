@@ -1,0 +1,39 @@
+
+  <ion-content padding class="manual-ios-statusbar-padding" scroll="false">
+    <form id="login-form1" class="list">
+      <div class="spacer" style="width: 300px; height: 30px;"></div>
+      <h3 text-center>Welcome</h3>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <ion-list id="login-list1" no-lines>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label floating>Email</ion-label>
+              <ion-input type="email" [(ngModel)] = "name" name="name"></ion-input>
+            </ion-item>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input type="password" [(ngModel)] = "password" name="password"></ion-input>
+          </ion-item>
+        </ion-row>
+      </ion-list>
+      <div class="spacer" style="height: 30px;"></div>
+      <button id="login-button1" class="button button-calm  button-block" (tap) = "onLoginClick()">LOG IN</button>
+      <a href-inappbrowser="/signup" id="login-button2" class="button button-calm  button-block button-clear" (tap) = "onSignUpClick()">OR SIGN UP</a>
+    </form>
+    <div class="spacer" style="width: 300px; height: 10px;"></div>
+
+    <div text-center>
+      <button class="button button-calm  button-block button-clear">Forgot Password?</button>
+    <hr>
+      <ion-icon name="logo-google"></ion-icon>
+      <ion-icon name="logo-facebook"></ion-icon>
+    </div>
+
+    
+
+
+  </ion-content>
