@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar color = "dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>eCommerce</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-right (tap) = "search()">
+      <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-right (tap) = "cart()">
+        <ion-icon name="cart"></ion-icon>&nbsp;
+        ({{cartLength}})
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-margin overflow-scroll="false">
+    <div padding>
+      <img src = "http://www.dwarkaexpress.com/wp-content/uploads/2012/12/rado-watch.jpg" width="100%" height="200px" >
+    </div>
+  <ion-card>
+    <ion-card-header>
+      Popular Products
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col (tap) = "mobiles()">
+          <img src = "http://drop.ndtv.com/TECH/product_database/images/11162016120819AM_635_op3t.jpeg" width="auto" height="90%">
+          <p text-center>MOBILES</p>
+        </ion-col>  
+        <ion-col (tap) = "jackets()">
+          <img src = "http://www.bhatnaturally.com/wp-content/uploads/2012/05/Chanel.png"  width="auto" height="90%">
+          <p text-center>JACKETS</p>
+        </ion-col>  
+        
+      </ion-row>           
+    </ion-card-content>
+  </ion-card>
+
+  <div>
+    <img src = "http://cdn2.highfashionmagazine.com/sites/highfashionmagazine.com/files/imagecache/story_main_pic/emma-watson-lancome-122112-666.jpg"> 
+  </div>
+
+  <ion-card>
+          <ion-card-content>
+            <ion-row>
+              <ion-col>
+                <div  margin-vertical>
+                  <h4>Mens shoes <span style="color: green">upto 50% off</span></h4>
+                </div>
+              </ion-col>
+              <ion-col>
+                <img src = "https://assets.myntassets.com/h_240,q_90,w_180/v1/assets/images/1421274/2016/11/5/11478342696001-Nike-Men-Black-Court-Borough-Suede-Mid-Top-Sneakers-7941478342695805-1_mini.jpg">
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-content>
+            <ion-row>
+              <ion-col>
+                <img src = "http://www.acrdepos.com/wordpress/wp-content/uploads/2013/06/Women-Business-Suit-Skirt-2.jpg">
+              </ion-col>
+              <ion-col>
+                <h4>Women dresses <span style="color: green">upto 30% off</span></h4>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+
+
+</ion-content>

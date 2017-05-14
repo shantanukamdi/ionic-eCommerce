@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar color = "dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Wishlist</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+  
+  <ion-list>
+    <ion-item *ngFor = "let wish of wishListArray" >
+      <ion-row>
+        <ion-col col-2 (tap) = "productPage(wish)">
+          <ion-avatar item-left>
+            <img src="{{wish.url}}">
+          </ion-avatar>
+        </ion-col>
+        
+        <ion-col col-8 (tap) = "productPage(wish)">
+          <h2 text-wrap>{{wish.product_name}}</h2>
+          <p>{{wish.price}}</p>
+        </ion-col>
+        
+        <ion-col col-2 text-right (tap) = "removeProduct(wish)">
+          <ion-icon name="close"></ion-icon>
+        </ion-col>
+      
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+
+    
+</ion-content>

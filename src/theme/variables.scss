@@ -28,8 +28,8 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222,
-  custom: #001427
+  dark:       #00ABE7,
+  custom:    #f53d3d
 );
 
 
@@ -77,3 +77,16 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+
+$grid-columns:               12 !default;
+
+$grid-padding-width:         1px !default;
+
+$grid-padding-widths: (
+  xs: $grid-padding-width,
+  sm: $grid-padding-width,
+  md: $grid-padding-width,
+  lg: $grid-padding-width,
+  xl: $grid-padding-width
+) !default;

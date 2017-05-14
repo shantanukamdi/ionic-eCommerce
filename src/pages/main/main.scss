@@ -1,3 +1,20 @@
 page-main {
-
-}
+    .main-class {
+        height: 30%;
+        background-color: #00ABE7;
+    }
+    .main-class img {
+        width: 100%;
+        height: 60%;
+        margin-top: 40px;
+    }
+    .main-class h5{
+        color: white;
+        margin-top: 90px;
+        text-transform: uppercase;
+    }
+    .main-class p{
+        color: white;
+        text-transform: uppercase;
+    }
+}   

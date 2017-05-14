@@ -1,0 +1,30 @@
+
+<ion-header>
+
+  <ion-navbar color = "dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Orders</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <ion-list>
+    <ion-item *ngFor = "let order of orders">
+      <ion-avatar item-left>
+        <img src = "{{order.url}}" alt="Order.jpg" >
+      </ion-avatar>
+      <ion-row>
+        <ion-col>
+          <h5>{{order.product_name}}</h5>
+        </ion-col>
+        
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

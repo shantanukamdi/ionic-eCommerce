@@ -24,7 +24,11 @@ export class Auth {
     let header = new Headers();
     header.append('Content-Type', 'application/json');
     this.authenticateUrl = 'http://localhost:8080/users/authenticate';
-    return this.http.post(this.authenticateUrl, user, { headers: header }).map(res => res.json());
+    //return this.http.post(this.authenticateUrl, user, { headers: header }).map(res => res.json());
+    return {
+       success: true,
+       token: 'kmisdsdsndsjkdb'
+    }
   }
 
 }

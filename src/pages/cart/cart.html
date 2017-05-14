@@ -1,0 +1,60 @@
+<ion-header>
+
+  <ion-navbar color = "dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>My Cart</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content *ngIf = "this.cartProductArray">
+
+      <ion-row>
+        <ion-col>
+          <h5>Pincode <span style="color: blue">440022</span></h5>
+        </ion-col>
+        
+        <ion-col>
+          <button ion-button text-right small color = "dark">Change Pincode</button>
+        </ion-col>
+      </ion-row>
+      <hr>
+  <ion-row padding>
+    <ion-col>
+      Total Price {{total | currency: symbolDisplay: true}}
+    </ion-col>
+    <ion-col></ion-col>
+    <ion-col>
+      <button ion-button small text-right color = "dark" (tap) = "buyProducts()">Buy Now</button>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-card *ngFor = "let product of cartProductArray">
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          <p>{{product.product_name}}</p>
+          <p>{{product.description}}</p>
+        </ion-col>
+        <ion-col>
+          <img src="{{product.url}}" alt="">
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <p>{{product.price | currency: symbolDisplay: true}}</p>
+        </ion-col>
+        <ion-col></ion-col>
+        <ion-col>
+          <ion-icon name = "close" (tap) = "removeFromCart(product)"></ion-icon>
+        </ion-col>
+      </ion-row>
+      
+    </ion-card-content>
+
+  </ion-card>
+    
+</ion-content>

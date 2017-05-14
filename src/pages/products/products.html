@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color = "dark">
+    <ion-title>Products</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngFor = "let product of productList" (tap) = "productDetails(product)">
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-4>
+          <img src = "{{product.url}}" >
+        </ion-col>
+        <ion-col col-8>
+          <ion-row>
+            <ion-col>
+              <h3>{{product.product_name}}</h3>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              <small>{{product.description}}</small>
+            </ion-col>
+          </ion-row>
+
+          <ion-row>
+            <ion-col>
+              {{product.price}}
+            </ion-col>
+          </ion-row>
+
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
