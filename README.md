@@ -1,6 +1,8 @@
 # ionic-eCommerce
 eCommerce application using ionic 2 framework
 
+WIP
+
 1. Clone the repo.
 2. Run npm install to download all the dependencies.
 3. After downloading all the dependencies, run ionic serve
