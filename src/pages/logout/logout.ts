@@ -14,12 +14,14 @@ export class Logout {
               public navParams: NavParams,
               private storage: Storage
   ) {
-    this.storage.get('token').then((token)=>{
+    /*this.storage.get('token').then((token)=>{
       if(token !== undefined){
-        this.storage.remove('token');
+        //this.storage.remove('token');
         this.navCtrl.setRoot(HomePage);
       }
-    });
+    });*/
+    window.localStorage.removeItem('user');
+    this.navCtrl.setRoot(HomePage);
   }
 
   ionViewDidLoad() {

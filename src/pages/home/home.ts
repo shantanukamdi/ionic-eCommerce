@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { 
+  IonicPage, 
+  NavController, 
+  LoadingController, 
+  Loading, 
+  AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 
@@ -12,16 +17,16 @@ import { Auth } from '../../providers/auth';
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  form: FormGroup;
-
+  
   private name: string;
   private password: string;
 
   constructor(public navCtrl: NavController,
               private _formBuilder: FormBuilder,
               private _auth: Auth,
-              private storage: Storage
+              private storage: Storage,
+              public alertCtrl: AlertController,
+              public loadingCtrl: LoadingController
     ) {
     
   }
@@ -36,6 +41,15 @@ export class HomePage {
       password: this.password
     };
 
+     this._auth.loginUser(user)
+        .then( authData => {
+          window.localStorage.setItem('user', JSON.stringify(authData));
+          this.navCtrl.push(Main);
+        }, error => {
+          
+        });
+
+
     /*this._auth.authenticate(user).subscribe(data => {
       console.log(data);
       if(data.success){
@@ -45,12 +59,12 @@ export class HomePage {
       }
     });*/
     
-    let data = this._auth.authenticate(user);
+   /* let data = this._auth.authenticate(user);
 
     if(data.success){
       this.storage.set('token', data.token);
       this.navCtrl.setRoot(Main);
-    }
+    }*/
   }
 
 }

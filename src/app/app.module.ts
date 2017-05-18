@@ -21,6 +21,17 @@ import { SearchModule } from '../pages/search/search.module';
 
 import { Data } from '../providers/data';
 import { LocalStorage } from '../providers/local-storage';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBdV8r7b643NZPrYLv4Z7DreRhclSiljcY",
+    authDomain: "ecommerce-40ff9.firebaseapp.com",
+    databaseURL: "https://ecommerce-40ff9.firebaseio.com",
+    projectId: "ecommerce-40ff9",
+    storageBucket: "ecommerce-40ff9.appspot.com",
+    messagingSenderId: "989517368829"
+};
 
 @NgModule({
   declarations: [
@@ -31,6 +42,8 @@ import { LocalStorage } from '../providers/local-storage';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
     SignupModule,
     MainModule,
     HttpModule,

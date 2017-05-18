@@ -35,12 +35,18 @@ export class Signup {
       number: this.number
     };
 
-    this._auth.register(user).subscribe(data => {
+    this._auth.register(user).then( authData => {
+      this.navCtrl.popToRoot();
+    }, error => {
+      console.log('error in registration', error);
+    });
+
+  /*  this._auth.register(user).subscribe(data => {
       if(data.success){
         this.navCtrl.push(HomePage);
         console.log(data);
       }
-    }); 
+    });*/ 
     
   }
 }

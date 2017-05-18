@@ -18,10 +18,13 @@ export class Main {
 
   rootPage: any = Dashboard;
   activePage: any;
+  user: string;
 
   pages: Array<{title: string, component: any}>;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.user = JSON.parse(window.localStorage.getItem('user'));
+
     this.pages = [
       { title: 'Home', component: Dashboard },
       { title: 'My Wishlist', component: Wishlist },
@@ -39,4 +42,7 @@ export class Main {
     console.log('ionViewDidLoad Main');
   }
 
+  ionViewWillEnter(){
+    this.user = JSON.parse(window.localStorage.getItem('user'));
+  }
 }
