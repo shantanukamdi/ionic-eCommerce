@@ -36,6 +36,12 @@ export class HomePage {
   }
 
   onLoginClick(){
+    let loader = this.loadingCtrl.create({
+      content: 'Authenticating...'
+    });
+
+    loader.present();
+
     const user = {
       name: this.name,
       password: this.password
@@ -44,6 +50,7 @@ export class HomePage {
      this._auth.loginUser(user)
         .then( authData => {
           window.localStorage.setItem('user', JSON.stringify(authData));
+          loader.dismiss();
           this.navCtrl.push(Main);
         }, error => {
           

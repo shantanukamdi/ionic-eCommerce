@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HomePage } from '../home/home';
 import { Auth } from '../../providers/auth';
@@ -19,8 +19,8 @@ export class Signup {
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
-              private _formBuilder: FormBuilder, 
-              private _auth: Auth
+              private _auth: Auth,
+              private loadingCtrl: LoadingController
   ) { }
 
   ionViewDidLoad() {
@@ -28,6 +28,12 @@ export class Signup {
   }
 
   onRegisterClick(){
+    let loader = this.loadingCtrl.create({
+      content: 'Registering User...'
+    });
+
+    loader.present();
+
     const user = {
       name: this.name,
       email: this.email,
@@ -36,7 +42,9 @@ export class Signup {
     };
 
     this._auth.register(user).then( authData => {
+      loader.dismiss();
       this.navCtrl.popToRoot();
+
     }, error => {
       console.log('error in registration', error);
     });
@@ -48,5 +56,8 @@ export class Signup {
       }
     });*/ 
     
+  }
+  onSignInClick(){
+    this.navCtrl.popToRoot();
   }
 }

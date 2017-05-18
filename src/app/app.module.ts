@@ -23,6 +23,7 @@ import { Data } from '../providers/data';
 import { LocalStorage } from '../providers/local-storage';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 
 const firebaseConfig = {
     apiKey: "AIzaSyBdV8r7b643NZPrYLv4Z7DreRhclSiljcY",
@@ -44,6 +45,7 @@ const firebaseConfig = {
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
+    
     SignupModule,
     MainModule,
     HttpModule,
@@ -66,7 +68,8 @@ const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Data,
-    LocalStorage
+    LocalStorage,
+    AngularFireDatabase
   ]
 })
 export class AppModule {}

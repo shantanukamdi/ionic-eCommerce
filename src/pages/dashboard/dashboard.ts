@@ -5,6 +5,7 @@ import { Data } from '../../providers/data';
 import { Cart } from '../cart/cart';
 import { LocalStorage } from '../../providers/local-storage';
 import { Search } from '../search/search';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @IonicPage()
 @Component({
@@ -13,14 +14,15 @@ import { Search } from '../search/search';
 })
 export class Dashboard {
   
-  productList: any;
+  productList: FirebaseListObservable<any>;
   cartLength = 0;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private _data: Data,
               private _localStorage: LocalStorage,
-              private modal: ModalController
+              private modal: ModalController,
+              private db: AngularFireDatabase
   ) {
   }
   ionViewDidLoad() {
@@ -32,7 +34,9 @@ export class Dashboard {
   }
 
 	mobiles(){
-    this.productList = this._data.getElectronics();
+    this.db.list('products').subscribe( data => {
+      console.log(data);
+    });
     this.navCtrl.push(Products,{
       productList: this.productList
     });
