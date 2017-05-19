@@ -14,7 +14,7 @@ export class Products {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     console.log("Navparams are ", this.navParams.get('productList'));
-    this.productList = this.navParams.get('productList').products;
+    this.productList = this.navParams.get('productList');
     
   }
 

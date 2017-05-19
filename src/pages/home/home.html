@@ -1,18 +1,20 @@
 
-  <ion-content padding class="manual-ios-statusbar-padding" scroll="false">
+  <ion-content padding class="manual-ios-statusbar-padding" no-scroll>
     <form id="login-form1" class="list">
-      <img src = "http://www.logo-company.in/logo/196.jpg" width="auto" height="200px" style="margin-left: 85px; ">
+      <img src = "http://www.logo-company.in/logo/196.jpg" width="auto" height="100px" style="margin-left: 120px; ">
       <ion-list id="login-list1" no-lines>
         <ion-row>
           <ion-col>
             <ion-item>
-              <ion-input type="email" [(ngModel)] = "name" name="name" placeholder = "email"></ion-input>
+               <ion-label floating>Email</ion-label>
+              <ion-input type="email" [(ngModel)] = "name" name="name"></ion-input>
             </ion-item>
         </ion-col>
         </ion-row>
         <ion-row>
           <ion-item>
-            <ion-input type="password" [(ngModel)] = "password" name="password" placeholder = "password"></ion-input>
+             <ion-label floating>Password</ion-label>
+                 <ion-input type="password" [(ngModel)] = "password" name="password"></ion-input>
           </ion-item>
         </ion-row>
       </ion-list>

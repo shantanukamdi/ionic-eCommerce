@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { Products } from '../products/products';
-import { Data } from '../../providers/data';
 import { Cart } from '../cart/cart';
 import { LocalStorage } from '../../providers/local-storage';
 import { Search } from '../search/search';
@@ -14,12 +13,11 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 })
 export class Dashboard {
   
-  productList: FirebaseListObservable<any>;
+  productList: any[];
   cartLength = 0;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
-              private _data: Data,
               private _localStorage: LocalStorage,
               private modal: ModalController,
               private db: AngularFireDatabase
@@ -34,18 +32,25 @@ export class Dashboard {
   }
 
 	mobiles(){
-    this.db.list('products').subscribe( data => {
-      console.log(data);
-    });
-    this.navCtrl.push(Products,{
-      productList: this.productList
-    });
+     this.db.list('/products/0/mobiles/products').subscribe(data => {
+       console.log('Data is ', data);
+       this.productList = data;
+       console.log('this.productList ', this.productList);
+       this.navCtrl.push(Products,{
+        productList: this.productList
+      });
+     });
+    
 	}
   jackets(){
-    this.productList = this._data.getFashion();
-    this.navCtrl.push(Products,{
-      productList: this.productList
-    });
+    this.db.list('/products/0/jackets/products').subscribe(data => {
+       console.log('Data is ', data);
+       this.productList = data;
+       console.log('this.productList ', this.productList);
+       this.navCtrl.push(Products,{
+        productList: this.productList
+      });
+     });
   }
 
   cart(){

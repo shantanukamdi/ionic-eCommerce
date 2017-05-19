@@ -19,7 +19,7 @@ import { WishlistModule } from '../pages/wishlist/wishlist.module';
 import { OrdersModule } from '../pages/orders/orders.module';
 import { SearchModule } from '../pages/search/search.module';
 
-import { Data } from '../providers/data';
+
 import { LocalStorage } from '../providers/local-storage';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -67,7 +67,6 @@ const firebaseConfig = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Data,
     LocalStorage,
     AngularFireDatabase
   ]
