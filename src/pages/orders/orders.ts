@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LocalStorage } from '../../providers/local-storage';
 
+
 @IonicPage()
 @Component({
   selector: 'page-orders',
