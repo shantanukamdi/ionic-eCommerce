@@ -37,20 +37,14 @@
   </ion-row>
 
   <ion-row>
-    <ion-col col-6>
-      <button ion-button color = "dark" icon-left block>
-        <ion-icon name = "share"></ion-icon>
-        SHARE</button>
-    </ion-col>
-
-    <ion-col col-6 text-right>
+    <ion-col  text-right>
       <button ion-button color = "light" icon-left block (tap) = "addToWishlist(product)">
-        <ion-icon name="star"></ion-icon>
-        WISHLIST</button>
+        <ion-icon name="heart"></ion-icon>
+        </button>
     </ion-col>
   </ion-row>  
 
-  
+  <h3>CUSTOMER REVIEWS</h3>
   <ion-list>
   <ion-item *ngFor = "let review of product.reviewDetails">
     <ion-avatar item-left>
